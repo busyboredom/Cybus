@@ -4,4 +4,5 @@ extern crate cybus;
 
 fn main() {
     cybus::hello_world();
+    cybus::init(4);
 }

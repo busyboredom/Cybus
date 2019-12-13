@@ -4,6 +4,10 @@ version = "0.1.0"
 authors = ["Charlie Wilkin <cwilkin@protonmail.com>"]
 edition = "2018"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
+# Logging
+log = "~0"
+fern = { version = "0.5", features = ["colored"] }
+
+# Time
+chrono = "~0"
