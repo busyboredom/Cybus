@@ -3,6 +3,7 @@
 #![crate_name = "cybus"]
 
 pub fn hello_world() -> String {
-    println!("Hello World!");
-    String::from("Hello World!")
+    let greeting = String::from("Hello World!");
+    println!("{}", greeting);
+    greeting
 }
