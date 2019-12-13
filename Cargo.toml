@@ -6,8 +6,8 @@ edition = "2018"
 
 [dependencies]
 # Logging
-log = "~0"
-fern = { version = "0.5", features = ["colored"] }
+log = { version = "~0", features = ["release_max_level_error"] }
+fern = { version = "~0", features = ["colored"] }
 
 # Time
 chrono = "~0"
