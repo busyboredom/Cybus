@@ -2,7 +2,9 @@
 
 #![crate_name = "cybus"]
 
-mod cybus;
+// Bring submodules into crate:: scope.
+pub mod cybus;
+pub use crate::cybus::*;
 
 use log::debug;
 
