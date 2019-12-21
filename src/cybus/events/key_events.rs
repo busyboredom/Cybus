@@ -1,54 +1,12 @@
-// This file contains the implementations of all event key, mouse, window and application events.
+// Implementations of each type of key event.
 
+use crate::events::common::*;
 use std::string;
-
-// ---------------- Enumerations of event types, and a trait common to all events. ----------------
-
-pub enum EventType {
-    //Misc. events.
-    NoEvent = 0,
-
-    // Window Events.
-    WindowClose,
-    WindowResize,
-    WindowFocus,
-    WindowMoved,
-
-    // Application Events.
-    AppTick,
-    AppUpdate,
-    AppRender,
-
-    // Key Events.
-    KeyPressed,
-    KeyReleased,
-
-    // Mouse Events.
-    MouseButtonPressed,
-    MouseButtonReleased,
-    MouseMoved,
-    MouseScrolled,
-}
-
-pub enum EventCategory {
-    NoEvent = 0,
-    EventCategoryWindow,
-    EventCategoryApplication,
-    EventCategoryKey,
-    EventCategoryMouseButton,
-}
-
-pub trait Event {
-    fn event_type(&self) -> &EventType;
-    fn event_category(&self) -> &EventCategory;
-}
-
-// ------------------------------------------ Key Events ------------------------------------------
 
 pub struct KeyPressedEvent {
     pub handled: bool,
-    pub key_code: u8,
-    pub repeat_count: u64,
+    key_code: u8,
+    repeat_count: u64,
 }
 
 impl KeyPressedEvent {
