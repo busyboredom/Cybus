@@ -7,8 +7,8 @@ pub enum EventType {
     NoEvent = 0,
 
     // Window Events.
-    WindowClose,
-    WindowResize,
+    WindowClosed,
+    WindowResized,
     WindowFocus,
     WindowMoved,
 
