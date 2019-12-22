@@ -36,7 +36,7 @@ impl Event for MouseMovedEvent {
     }
 
     fn event_category(&self) -> &EventCategory {
-        &EventCategory::EventCategoryMouseButton //Not sure
+        &EventCategory::EventCategoryMouse
     }
 }
 
@@ -73,7 +73,37 @@ impl Event for MouseScrolledEvent {
     }
 
     fn event_category(&self) -> &EventCategory {
-        &EventCategory::EventCategoryMouseButton
+        &EventCategory::EventCategoryMouse
+    }
+}
+
+// ---------------------------------------- Mouse Button Pressed ------------------------------------------
+
+pub struct MousePressedEvent {
+    pub handled: bool,
+    key_code: u8,
+}
+
+impl KeyReleasedEvent {
+    pub fn key_code(&self) -> &u8 {
+        &self.key_code
+    }
+}
+
+impl string::ToString for KeyReleasedEvent {
+    fn to_string(&self) -> String {
+        let s = "KeyReleasedEvent Key Code: ".to_string() + &self.key_code.to_string();
+        s
+    }
+}
+
+impl Event for KeyReleasedEvent {
+    fn event_type(&self) -> &EventType {
+        &EventType::KeyReleased
+    }
+
+    fn event_category(&self) -> &EventCategory {
+        &EventCategory::EventCategoryKey
     }
 }
 
