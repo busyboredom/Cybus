@@ -20,6 +20,7 @@ pub enum EventType {
     // Key Events.
     KeyPressed,
     KeyReleased,
+    KeyTyped,
 
     // Mouse Events.
     MouseButtonPressed,
