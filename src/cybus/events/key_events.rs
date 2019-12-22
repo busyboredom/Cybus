@@ -7,8 +7,8 @@ use std::string;
 
 pub struct KeyPressedEvent {
     pub handled: bool,
-    key_code: u8,
-    repeat_count: u64,
+    pub key_code: u8,
+    pub repeat_count: u64,
 }
 
 impl KeyPressedEvent {

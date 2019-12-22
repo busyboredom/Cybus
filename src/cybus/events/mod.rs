@@ -3,13 +3,15 @@
 
 pub mod application_events;
 mod common;
+pub mod event_queue;
 pub mod key_events;
 pub mod mouse_events;
 pub mod window_events;
 
 // Bring all components into scope for this module (but not other modules).
 
-use application_events::*;
-use key_events::*;
-use mouse_events::*;
-use window_events::*;
+pub use application_events::*;
+pub use event_queue::*;
+pub use key_events::*;
+pub use mouse_events::*;
+pub use window_events::*;
