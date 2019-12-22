@@ -1,4 +1,4 @@
-//
+// A basic event queue using std::mpsc
 
 use super::common::Event;
 use std::sync::mpsc;
