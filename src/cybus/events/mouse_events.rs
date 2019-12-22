@@ -3,6 +3,8 @@
 use crate::events::common::*;
 use std::string;
 
+// ------------------------------------------- Mouse Moved ----------------------------------------
+
 pub struct MouseMovedEvent {
     pub handled: bool,
     x: f32,
@@ -38,11 +40,44 @@ impl Event for MouseMovedEvent {
     }
 }
 
+// ------------------------------------------ Mouse Scrolled -------------------------------------------
+
 pub struct MouseScrolledEvent {
     pub handled: bool,
     x_offset: f32,
     y_offset: f32,
 }
+
+impl MouseScrolledEvent {
+    pub fn x_offset(&self) -> &f32 {
+        &self.x_offset
+    }
+    pub fn y_offset(&self) -> &f32 {
+        &self.y_offset
+    }
+}
+
+impl string::ToString for MouseScrolledEvent {
+    fn to_string(&self) -> String {
+        let ss = "MouseScrolledEvent x_offset: ".to_string()
+            + &self.x_offset.to_string()
+            + &", y_offset: ".to_string()
+            + &self.y_offset.to_string();
+        ss
+    }
+}
+
+impl Event for MouseScrolledEvent {
+    fn event_type(&self) -> &EventType {
+        &EventType::MouseScrolled
+    }
+
+    fn event_category(&self) -> &EventCategory {
+        &EventCategory::EventCategoryMouseButton
+    }
+}
+
+// ------------------------------------------- Tests ----------------------------------------------
 
 #[cfg(test)]
 mod tests {
@@ -56,4 +91,17 @@ mod tests {
         assert_eq!("MouseMovedEvent x: 2.2, y: 3.3", mouse_move.to_string());
     }
 
+    #[test]
+    fn mouse_scrolled_to_string() {
+        let mouse_scroll = crate::events::MouseScrolledEvent {
+            handled: false,
+            x_offset: 2.3,
+            y_offset: 3.2,
+        };
+
+        assert_eq!(
+            "MouseScrolledEvent x_offset: 2.3, y_offset: 3.2",
+            mouse_scroll.to_string()
+        );
+    }
 }
