@@ -107,6 +107,36 @@ impl Event for MousePressedEvent {
     }
 }
 
+// ---------------------------------------- Mouse Released ------------------------------------------
+
+pub struct MouseReleasedEvent {
+    pub handled: bool,
+    mouse_released_code: u8,
+}
+
+impl MouseReleasedEvent {
+    pub fn mouse_released_code(&self) -> &u8 {
+        &self.mouse_released_code
+    }
+}
+
+impl string::ToString for MouseReleasedEvent {
+    fn to_string(&self) -> String {
+        let s = "MouseReleasedEvent Code: ".to_string() + &self.mouse_released_code.to_string();
+        s
+    }
+}
+
+impl Event for MouseReleasedEvent {
+    fn event_type(&self) -> &EventType {
+        &EventType::MouseButtonReleased
+    }
+
+    fn event_category(&self) -> &EventCategory {
+        &EventCategory::EventCategoryMouse
+    }
+}
+
 // ------------------------------------------- Tests ----------------------------------------------
 
 #[cfg(test)]
@@ -143,5 +173,15 @@ mod tests {
         };
 
         assert_eq!("MousePressedEvent Code: 5", mouse_press.to_string());
+    }
+
+    #[test]
+    fn mouse_released_to_string() {
+        let mouse_release = crate::events::MouseReleasedEvent {
+            handled: false,
+            mouse_released_code: 5,
+        };
+
+        assert_eq!("MouseReleasedEvent Code: 5", mouse_release.to_string());
     }
 }
