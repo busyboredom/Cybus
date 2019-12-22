@@ -77,33 +77,33 @@ impl Event for MouseScrolledEvent {
     }
 }
 
-// ---------------------------------------- Mouse Button Pressed ------------------------------------------
+// ---------------------------------------- Mouse Pressed ------------------------------------------
 
 pub struct MousePressedEvent {
     pub handled: bool,
-    key_code: u8,
+    mouse_pressed_code: u8,
 }
 
-impl KeyReleasedEvent {
-    pub fn key_code(&self) -> &u8 {
-        &self.key_code
+impl MousePressedEvent {
+    pub fn mouse_pressed_code(&self) -> &u8 {
+        &self.mouse_pressed_code
     }
 }
 
-impl string::ToString for KeyReleasedEvent {
+impl string::ToString for MousePressedEvent {
     fn to_string(&self) -> String {
-        let s = "KeyReleasedEvent Key Code: ".to_string() + &self.key_code.to_string();
+        let s = "MousePressedEvent Code: ".to_string() + &self.mouse_pressed_code.to_string();
         s
     }
 }
 
-impl Event for KeyReleasedEvent {
+impl Event for MousePressedEvent {
     fn event_type(&self) -> &EventType {
-        &EventType::KeyReleased
+        &EventType::MouseButtonPressed
     }
 
     fn event_category(&self) -> &EventCategory {
-        &EventCategory::EventCategoryKey
+        &EventCategory::EventCategoryMouse
     }
 }
 
@@ -133,5 +133,15 @@ mod tests {
             "MouseScrolledEvent x_offset: 2.3, y_offset: 3.2",
             mouse_scroll.to_string()
         );
+    }
+
+    #[test]
+    fn mouse_pressed_to_string() {
+        let mouse_press = crate::events::MousePressedEvent {
+            handled: false,
+            mouse_pressed_code: 5,
+        };
+
+        assert_eq!("MousePressedEvent Code: 5", mouse_press.to_string());
     }
 }
