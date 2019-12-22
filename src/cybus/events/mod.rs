@@ -1,13 +1,13 @@
 // This file simply gathers the components of the directory and makes them available as the events
 // mod.
 
-mod application_events;
+pub mod application_events;
 mod common;
-mod key_events;
-mod mouse_events;
-mod window_events;
+pub mod key_events;
+pub mod mouse_events;
+pub mod window_events;
 
-// Bring all components into scope
+// Bring all components into scope for this module (but not other modules).
 
 use application_events::*;
 use key_events::*;
