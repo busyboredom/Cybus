@@ -1,4 +1,4 @@
-// Enumerations of ecent types and categories, as well as a common event trait.
+// Enumerations of event types and categories, as well as a common event trait and the event queue.
 
 // ---------------- Enumerations of event types, and a trait common to all events. ----------------
 
@@ -34,7 +34,7 @@ pub enum EventCategory {
     EventCategoryWindow,
     EventCategoryApplication,
     EventCategoryKey,
-    EventCategoryMouseButton,
+    EventCategoryMouse,
 }
 
 pub trait Event {
