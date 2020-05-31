@@ -22,11 +22,10 @@ impl MouseMovedEvent {
 
 impl string::ToString for MouseMovedEvent {
     fn to_string(&self) -> String {
-        let s = "MouseMovedEvent x: ".to_string()
+        "MouseMovedEvent x: ".to_string()
             + &self.x.to_string()
             + &", y: ".to_string()
-            + &self.y.to_string();
-        s
+            + &self.y.to_string()
     }
 }
 
@@ -59,11 +58,10 @@ impl MouseScrolledEvent {
 
 impl string::ToString for MouseScrolledEvent {
     fn to_string(&self) -> String {
-        let ss = "MouseScrolledEvent x_offset: ".to_string()
+        "MouseScrolledEvent x_offset: ".to_string()
             + &self.x_offset.to_string()
             + &", y_offset: ".to_string()
-            + &self.y_offset.to_string();
-        ss
+            + &self.y_offset.to_string()
     }
 }
 
@@ -92,8 +90,7 @@ impl MousePressedEvent {
 
 impl string::ToString for MousePressedEvent {
     fn to_string(&self) -> String {
-        let s = "MousePressedEvent Code: ".to_string() + &self.mouse_pressed_code.to_string();
-        s
+        "MousePressedEvent Code: ".to_string() + &self.mouse_pressed_code.to_string()
     }
 }
 
@@ -122,8 +119,7 @@ impl MouseReleasedEvent {
 
 impl string::ToString for MouseReleasedEvent {
     fn to_string(&self) -> String {
-        let s = "MouseReleasedEvent Code: ".to_string() + &self.mouse_released_code.to_string();
-        s
+        "MouseReleasedEvent Code: ".to_string() + &self.mouse_released_code.to_string()
     }
 }
 

@@ -1,6 +1,5 @@
 // A basic event queue using std::mpsc
 
-use super::common::Event;
 use std::sync::mpsc;
 
 pub fn make_event_queue<T>() -> (mpsc::Sender<T>, mpsc::Receiver<T>) {

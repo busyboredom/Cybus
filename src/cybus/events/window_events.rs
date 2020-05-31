@@ -23,11 +23,10 @@ impl WindowResizedEvent {
 
 impl string::ToString for WindowResizedEvent {
     fn to_string(&self) -> String {
-        let s = "WindowResizedEvent Width: ".to_string()
+        "WindowResizedEvent Width: ".to_string()
             + &self.width.to_string()
             + &", Height: ".to_string()
-            + &self.height.to_string();
-        s
+            + &self.height.to_string()
     }
 }
 
@@ -49,8 +48,7 @@ pub struct WindowClosedEvent {
 
 impl string::ToString for WindowClosedEvent {
     fn to_string(&self) -> String {
-        let s = "WindowClosedEvent".to_string();
-        s
+        "WindowClosedEvent".to_string()
     }
 }
 

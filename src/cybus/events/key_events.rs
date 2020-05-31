@@ -23,11 +23,10 @@ impl KeyPressedEvent {
 
 impl string::ToString for KeyPressedEvent {
     fn to_string(&self) -> String {
-        let s = "KeyPressedEvent Key Code: ".to_string()
+        "KeyPressedEvent Key Code: ".to_string()
             + &self.key_code.to_string()
             + &", Repeats: ".to_string()
-            + &self.repeat_count.to_string();
-        s
+            + &self.repeat_count.to_string()
     }
 }
 
@@ -56,8 +55,7 @@ impl KeyReleasedEvent {
 
 impl string::ToString for KeyReleasedEvent {
     fn to_string(&self) -> String {
-        let s = "KeyReleasedEvent Key Code: ".to_string() + &self.key_code.to_string();
-        s
+        "KeyReleasedEvent Key Code: ".to_string() + &self.key_code.to_string()
     }
 }
 
@@ -86,8 +84,7 @@ impl KeyTypedEvent {
 
 impl string::ToString for KeyTypedEvent {
     fn to_string(&self) -> String {
-        let s = "KeyTypedEvent Key Code: ".to_string() + &self.key_code.to_string();
-        s
+        "KeyTypedEvent Key Code: ".to_string() + &self.key_code.to_string()
     }
 }
 
