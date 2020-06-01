@@ -12,5 +12,8 @@ fern = { version = "~0", features = ["colored"] }
 # Time
 chrono = "~0"
 
+# Windowing
+winit = "~0"
+
 [profile.release]
 lto = true
